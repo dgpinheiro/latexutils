@@ -1,0 +1,136 @@
+\PassOptionsToPackage{table}{xcolor}
+
+% Definições do tipo de documento
+\documentclass[12pt,a4paper,ruledheader,espacoumemeio,floatnumber=continuous]{abnt}
+
+
+% Pacote que permite utilizar vários arquivos de bibliografia em diferentes seções
+\usepackage[defaultbib]{bibtopic}
+\bibliographystyle{my-abnt-alf}
+
+% Previne que as figuras saiam fora da seção
+\usepackage[section,subsection,subsubsection]{extraplaceins}
+
+\usepackage{alltt}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,arrows}
+
+\usepackage{enumitem}
+
+\usepackage{xspace}
+
+\let\OldTexttrademark\texttrademark
+\renewcommand{\texttrademark}{\OldTexttrademark\xspace}%
+
+
+% Idioma e acentos
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+
+% Usa fonte European Computer Modern (EC) font
+\usepackage{type1ec}
+
+\renewcommand*\thesection{\arabic{section}}
+
+\usepackage{textcase}
+\usepackage[explicit]{titlesec}
+
+\titleformat{\section}
+  {\normalfont\bfseries}{\thesection}{1em}{\MakeTextUppercase{#1}}
+
+\titlespacing{\section}{0pt}{*0}{*0}
+
+% novo comando \src para incluir o nome de programas
+\newcommand{\src}[1]{%
+        {\tt [#1]}
+}
+
+% http://www.mat.uc.pt/~pedro/LaTeX/
+\def\bo{\mbox{\raise .35em \hbox{\underline{\scriptsize o}\ }}}
+\def\ba{\mbox{\raise .35em \hbox{\underline{\scriptsize a}\ }}}
+\def\Exmo{Ex\mbox{\raise .35em \hbox{\underline{\footnotesize mo}\ }}}
+\def\Exmos{Ex\mbox{\raise .35em \hbox{\underline{\footnotesize mos}\ }}}
+\def\Excia{Ex\mbox{\raise .35em \hbox{\underline{\footnotesize cia}\ }}}
+
+\usepackage{amsmath}
+
+
+% Coloca quebra de linhas em URLs
+\usepackage{url}
+
+\usepackage{multirow} % Permite tabelas com multiplas linhas colapsadas.
+\usepackage{booktabs} % Permite o uso de tabelas profissionais (\toprule,\bottomrule, etc).
+
+\usepackage[footnotesize,bf,up,center]{caption} % Diminui o tamanho da letra e faz o texto (Figura N ou Tabela N) em negrito
+\captionsetup[table]{justification=justified,singlelinecheck=false} % Justifica as legendas (captions) das tabelas.
+\captionsetup[figure]{justification=justified,singlelinecheck=false} % Justifica as legendas (captions) das figuras.
+\setlength{\belowcaptionskip}{5pt} % Configura o espa?amento entre a legenda e a tabela ou figura
+
+\usepackage{longtable}
+\setlongtables % keeps the width uniform across both pages
+
+\usepackage{pdflscape} % Permite rotacionar a p?gina para Paisagem (landscape)
+\usepackage{rotating} % Permite rotacionar tabelas (sideways)
+
+\usepackage{supertabular}
+\usepackage[paginas=nao,ordem=oc]{tabela-simbolos} % Usado para gerar a Lista de Siglas
+\newindex{default}{idx}{ind}{Índice Remissivo} % Gera um segundo índice
+
+\usepackage[final]{pdfpages}
+
+\usepackage{siunitx}
+
+\usepackage{colortbl}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fixltx2e}
+\usepackage[flushleft]{threeparttable}
+
+\usepackage{acronym}
+
+\usepackage{tabularx}
+\usepackage[margin=2cm]{geometry}
+
+\usepackage[T1]{fontenc}
+
+\hyphenation{circ-RNAs}
+\hyphenation{va-li-da-ção}
+\hyphenation{se-quen-ci-a-do}
+
+\newcommand{\TM}{\textsuperscript{\tiny\texttrademark}}
+\newcommand{\RM}{\textsuperscript{\tiny\textregistered}}
+
+\definecolor{lightgray}{gray}{0.9}
+
+%\usepackage{hyperref}
+
+\begin{document}
+
+	\DeclareGraphicsExtensions{.jpg,.png,.gif}
+
+	\include{capa}
+	
+	{\let\clearpage\relax\section{Introdução}}\label{sec:introducao}
+    	\input{section/introducao}
+
+	{\let\clearpage\relax\section{Objetivos}}\label{sec:objetivos}
+    	\input{section/objetivos}
+    
+	{\let\clearpage\relax\section{Metodologia}}\label{sec:metodologia}
+	\input{section/metodologia}
+	
+	{\let\clearpage\relax\section{Cronograma de Execução}}\label{sec:cronograma}
+	\input{section/cronograma}
+	
+	{\let\clearpage\relax\section{Plano de Atividades}}\label{sec:atividades}
+	\input{section/atividades}
+	
+ 	{\let\clearpage\relax\section{Bibliografia}}\label{sec:bibliografia}
+    
+	\begin{btSect}{bibliografia.bib}
+        	\btPrintCited
+	\end{btSect}
+
+\end{document}

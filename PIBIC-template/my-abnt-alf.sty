@@ -1,0 +1,25 @@
+%% $Id: my-abnt-alf.sty,v 1.17 2002/06/28 07:47:14 mvsfrasson Exp $
+%% 
+%% name of this file abnt-alf.sty
+%% Copyright 2001-2002 by the abnTeX group at http://abntex.codigolivre.org.br
+%%
+%% This file is distributed under the LaTeXProject Public License (LPPL)
+%%            http://www.latex-project.org/lppl.html 
+%% You are free to modify this file under the LPPL.
+%%
+%% This style file contains heavily modified code from latex.ltx
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{my-abnt-alf}[2002/06/24]
+
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{abntcite}}
+
+\ProcessOptions
+%\usepackage[alf,abnt-year-extra-label=yes,abnt-full-initials=no,abnt-emphasize=bf,abnt-and-type=e,abnt-url-package=url,abnt-repeated-author-omit=yes]{abntcite}%{abnt-alf}
+%\usepackage[alf,bibjustif,recuo=1cm,abnt-etal-text=emph,abnt-etal-cite=3]{abntcite} % Referencia da ABNT com justificativa direita e recuo, e et. al em itálico
+
+\PassOptionsToPackage{alf}{abntcite}
+
+\RequirePackage{abntcite}
+
+\endinput
